@@ -62,7 +62,8 @@ class PygerMeister:
         if self.args.verbose:
             print "Looping incidents..."
         for incident in incidents:
-            print incident
+            if self.args.verbose:
+                print incident
             incident_json = incident.trigger_summary_data.to_json()
             subject = incident.service.name
             message = " - ".join(item[1] for item in incident_json.items())
